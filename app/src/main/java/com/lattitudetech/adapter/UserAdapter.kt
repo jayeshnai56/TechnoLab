@@ -3,6 +3,7 @@ package com.lattitudetech.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.lattitudetech.R
@@ -41,6 +42,12 @@ class UserAdapter(private val data: List<User>, private val listener: UserListIn
             val user = data[position]
             holder.binding.model = user
 
+            if (data[position].name.startsWith("A")
+                || data[position].name.startsWith("B")
+                || data[position].name.startsWith("C")) {
+                holder.binding.root.animation =
+                    AnimationUtils.loadAnimation(holder.itemView.context, R.anim.translate)
+            }
 
             holder.binding.lblExapand.setOnClickListener {
                 holder.binding.lblExapand.text =

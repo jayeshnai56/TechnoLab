@@ -37,7 +37,7 @@ class UserListFragment : Fragment(), ConfirmationInterface, UserListInterface {
     }
 
     private fun init() {
-        db = AppDatabase.getAppDataBase(activity!!)
+        db = AppDatabase.getAppDataBase(requireActivity())
         val list = db!!.userDao().getAll()
 
         for (i in list.indices) {
@@ -64,6 +64,9 @@ class UserListFragment : Fragment(), ConfirmationInterface, UserListInterface {
     ///////////////////////////////////////////////////////////////////////////
 
     override fun onConfirmationApproved(pos: Int) {
+        if (db != null) {
+            db!!.userDao().deleteUser(listUser[pos].id)
+        }
         listUser.removeAt(pos)
         adapter.notifyItemRemoved(pos)
         adapter.notifyItemRangeChanged(pos, listUser.size)

@@ -1,6 +1,7 @@
 package com.lattitudetech.db.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
@@ -19,4 +20,8 @@ interface DbUserDao {
 
     @Query("DELETE FROM DbUser")
     fun clearData()
+
+    @Query("DELETE FROM DbUser WHERE id =:itemId")
+    fun deleteUser(itemId: Int)
+
 }
