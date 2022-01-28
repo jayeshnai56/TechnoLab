@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         checkpermissions()
     }
 
+
     private fun checkpermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             if (ContextCompat.checkSelfPermission(
