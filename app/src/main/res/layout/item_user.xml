@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.lattitudetech.model.User" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="@dimen/_8sdp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_baseline_person_24"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp" />
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:text="@{model.name}"
+                        tools:text="Jayesh Nai"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@{model.username}"
+                        tools:text="username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:src="@drawable/ic_location"
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp" />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="@{model.address.street + `, ` + model.address.city}"
+                    tools:text="Street, City Name."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/lblExapand"
+                    android:textColor="@android:color/holo_blue_bright"
+                    android:text="Show more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/vMobile"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:src="@drawable/ic_call"
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp" />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="@{model.phone}"
+                    tools:text="Mobile No"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/vCompany"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:src="@drawable/ic_office"
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp" />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="@{model.company.name}"
+                    tools:text="Company."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
